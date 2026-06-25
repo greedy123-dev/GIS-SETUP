@@ -76,7 +76,8 @@ async def setup_gis(ctx):
         under_investigation = await guild.create_role(name="Under Investigation", color=c_status)
         active_review = await guild.create_role(name="Active Review", color=c_status)
         suspended = await guild.create_role(name="Suspended Access", color=c_status)
-        blacklisted = await guild.create_role(name="Blacklisted", color=discord.Color.black())
+        # FIXED: Using RGB (1,1,1) for black instead of the non-existent .black() attribute
+        blacklisted = await guild.create_role(name="Blacklisted", color=discord.Color.from_rgb(1, 1, 1))
 
         # Operations Roles
         active_ops = await guild.create_role(name="Active Operations", color=c_ops)
